@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000">
+<title>VV HYBRID UNIVERS · Road to First Million</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#C9A84C;--gold2:rgba(201,168,76,.08);--gold-b:rgba(201,168,76,.18);
+  --w:#fff;--w60:rgba(255,255,255,.6);--w40:rgba(255,255,255,.4);
+  --w20:rgba(255,255,255,.2);--w08:rgba(255,255,255,.08);--w04:rgba(255,255,255,.04);
+  --border:rgba(255,255,255,.07);
+  --green:#30D158;--blue:#2997FF;--purple:#BF5AF2;--orange:#FF9F0A;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:#050505;color:var(--w);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 48px 80px;position:relative;background:radial-gradient(ellipse at top, rgba(201,168,76,.08) 0%, transparent 60%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+.logo{font-family:var(--serif);font-size:clamp(80px,12vw,140px);font-weight:400;line-height:1;letter-spacing:-3px;color:var(--gold);margin-bottom:16px;text-shadow:0 0 60px rgba(201,168,76,.3);}
+.tagline{font-size:clamp(18px,3vw,28px);font-weight:300;color:var(--w60);letter-spacing:2px;text-transform:uppercase;margin-bottom:60px;}
+.mission{font-family:var(--serif);font-style:italic;font-size:clamp(28px,5vw,52px);font-weight:400;line-height:1.25;max-width:800px;margin:0 auto 48px;color:var(--w);}
+.mission em{font-style:normal;color:var(--gold);}
+
+.chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--w04);border:0.5px solid var(--border);border-radius:100px;font-size:13px;color:var(--w40);transition:all .3s;}
+.chip:hover{background:var(--gold2);border-color:var(--gold-b);color:var(--gold);transform:translateY(-2px);}
+.chip-icon{font-size:18px;}
+
+.cta{display:inline-block;padding:16px 40px;background:var(--gold);color:#000;font-size:15px;font-weight:600;letter-spacing:1px;text-decoration:none;border-radius:100px;transition:all .3s;box-shadow:0 4px 20px rgba(201,168,76,.3);}
+.cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.5);}
+
+.sec{max-width:1100px;margin:0 auto;padding:100px 48px;border-bottom:0.5px solid var(--border);}
+.sec:last-of-type{border-bottom:none;}
+.s-eye{font-size:11px;font-weight:500;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;}
+.s-title{font-family:var(--serif);font-size:clamp(36px,6vw,72px);font-weight:400;line-height:1.1;letter-spacing:-1px;margin-bottom:24px;}
+.s-title em{font-style:italic;color:var(--gold);}
+.s-sub{font-size:18px;font-weight:300;color:var(--w60);line-height:1.75;max-width:700px;margin-bottom:60px;}
+
+.founder{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:48px;background:rgba(201,168,76,.04);border:0.5px solid var(--gold-b);border-radius:20px;margin-bottom:60px;}
+.founder-img{width:200px;height:200px;border-radius:16px;background:linear-gradient(135deg, var(--gold2), var(--w04));display:flex;align-items:center;justify-content:center;font-size:80px;border:0.5px solid var(--gold-b);}
+.founder-name{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--gold);margin-bottom:8px;}
+.founder-title{font-size:14px;color:var(--w40);margin-bottom:24px;letter-spacing:1px;text-transform:uppercase;}
+.founder-quote{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.6;color:var(--w60);margin-bottom:20px;}
+.founder-bio{font-size:15px;color:var(--w40);line-height:1.8;}
+
+.manifesto{padding:60px;background:var(--w04);border:0.5px solid var(--border);border-radius:20px;margin-bottom:60px;}
+.manifesto-item{padding:32px 0;border-bottom:0.5px solid var(--border);}
+.manifesto-item:last-child{border-bottom:none;}
+.manifesto-num{font-family:var(--serif);font-style:italic;font-size:48px;color:var(--gold2);margin-bottom:16px;}
+.manifesto-title{font-size:20px;font-weight:600;margin-bottom:12px;color:var(--gold);}
+.manifesto-text{font-size:15px;color:var(--w60);line-height:1.8;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:48px;}
+.card{padding:32px;background:var(--w04);border:0.5px solid var(--border);border-radius:16px;transition:all .3s;}
+.card:hover{border-color:var(--gold-b);background:var(--gold2);transform:translateY(-4px);}
+.card-icon{font-size:32px;margin-bottom:20px;}
+.card-title{font-size:18px;font-weight:600;margin-bottom:12px;}
+.card-desc{font-size:14px;font-weight:300;color:var(--w60);line-height:1.7;}
+.card-value{font-family:var(--serif);font-size:40px;color:var(--gold);margin-top:16px;}
+
+.timeline{position:relative;padding:40px 0;}
+.timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:2px;background:linear-gradient(180deg, var(--gold), transparent);}
+.timeline-item{position:relative;padding-left:100px;margin-bottom:60px;}
+.timeline-dot{position:absolute;left:28px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--gold);border:4px solid #050505;box-shadow:0 0 0 2px var(--gold-b);}
+.timeline-date{font-size:12px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.timeline-title{font-size:22px;font-weight:600;margin-bottom:12px;}
+.timeline-desc{font-size:15px;color:var(--w60);line-height:1.7;}
+
+.quote-big{text-align:center;padding:80px 48px;background:radial-gradient(ellipse at center, rgba(201,168,76,.06) 0%, transparent 70%);}
+.quote-big-text{font-family:var(--serif);font-style:italic;font-size:clamp(32px,5vw,64px);font-weight:400;color:var(--w60);line-height:1.3;max-width:900px;margin:0 auto 32px;}
+.quote-big-text em{font-style:normal;color:var(--gold);}
+.quote-big-author{font-size:13px;letter-spacing:3px;color:var(--w20);text-transform:uppercase;}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:60px;}
+.stat{text-align:center;padding:32px;background:var(--w04);border:0.5px solid var(--border);border-radius:16px;}
+.stat-value{font-family:var(--serif);font-size:48px;color:var(--gold);margin-bottom:8px;}
+.stat-label{font-size:13px;color:var(--w40);text-transform:uppercase;letter-spacing:1px;}
+
+footer{text-align:center;padding:60px 48px;border-top:0.5px solid var(--border);}
+.footer-logo{font-family:var(--serif);font-size:48px;color:var(--gold);margin-bottom:16px;}
+.footer-tagline{font-size:14px;color:var(--w40);margin-bottom:32px;}
+.footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:24px;flex-wrap:wrap;}
+.footer-link{font-size:13px;color:var(--w40);text-decoration:none;transition:color .2s;}
+.footer-link:hover{color:var(--gold);}
+.footer-copy{font-size:12px;color:var(--w20);line-height:1.8;}
+
+@media(max-width:768px){
+  .hero,.sec{padding:60px 24px;}
+  .grid2,.grid3,.stats{grid-template-columns:1fr;}
+  .founder{grid-template-columns:1fr;text-align:center;}
+  .founder-img{margin:0 auto;}
+  .timeline{padding-left:0;}
+  .timeline::before{left:12px;}
+  .timeline-item{padding-left:60px;}
+  .timeline-dot{left:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo">VV HYBRID UNIVERS</div>
+  <div class="tagline">Road to First Million</div>
+  <div class="mission">
+    Construim primul AI <em>care învață din oameni reali</em>, nu din cloud-ul altcuiva.
+  </div>
+  <div class="chips">
+    <div class="chip"><span class="chip-icon">👤</span> 1 Om, 26 Ani</div>
+    <div class="chip"><span class="chip-icon">💻</span> iPhone X + Toshiba 4GB</div>
+    <div class="chip"><span class="chip-icon">🇷🇴</span> Slobozia, România</div>
+    <div class="chip"><span class="chip-icon">💰</span> €0 Finanțare Externă</div>
+  </div>
+  <a href="#manifesto" class="cta">CITEȘTE MANIFESTUL</a>
+</div>
+
+<!-- FONDATORUL -->
+<div class="sec">
+  <div class="s-eye">Fondatorul</div>
+  <h2 class="s-title">Cosmin Toma.<br><em>CEO VV Hybrid Universe.</em></h2>
+  
+  <div class="founder">
+    <div class="founder-img">⬡</div>
+    <div>
+      <div class="founder-name">Cosmin Toma</div>
+      <div class="founder-title">CEO & Fondator · 26 Ani · Slobozia</div>
+      <div class="founder-quote">
+        "Adevărul se validează pe stradă, nu pe ecran. 
+        Banii vin dacă rezolvi probleme reale pentru oameni reali."
+      </div>
+      <div class="founder-bio">
+        Construit pe un iPhone X și un Toshiba de 11 ani cu 4GB RAM. Zero experiență în programare la început. Zero finanțare externă. 
+        Doar viziune clară, muncă obsesivă, și credința că limitările sunt oportunități creative.<br><br>
+        <strong style="color:var(--gold)">Stay hungry, stay foolish.</strong> — Steve Jobs<br>
+        <strong style="color:var(--w)">Rămâi flămând. Rămâi nebun.</strong> — Filozofia VV
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MANIFESTUL -->
+<div class="sec" id="manifesto">
+  <div class="s-eye">Manifestul VV</div>
+  <h2 class="s-title">De ce există<br><em>VV Hybrid Universe.</em></h2>
+  <p class="s-sub">Aceasta este biblia mea. Motivația mea. Roadmap-ul meu către primul milion și mai departe.</p>
+  
+  <div class="manifesto">
+    <div class="manifesto-item">
+      <div class="manifesto-num">01</div>
+      <div class="manifesto-title">Suveranitate Digitală</div>
+      <div class="manifesto-text">
+        Datele mele. Regulile mele. Viitorul meu. NU mai depind de Google, Apple, sau Microsoft pentru AI-ul care mă ajută zilnic. 
+        Lea funcționează pe hardware modest (4GB RAM!), local-first, cu cloud doar pentru sync. 
+        Dacă vor să mă închidă — nu pot. Ecosistemul e distribuit.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">02</div>
+      <div class="manifesto-title">Validare Fizică > Algoritmi Reci</div>
+      <div class="manifesto-text">
+        Google Maps îți spune că un restaurant e deschis. VV Pulse trimite un Insider să verifice fizic. 
+        Asta e diferența dintre date reci și adevăr urban. "Adevărul se validează pe stradă, nu pe ecran" nu e slogan — e arhitectură.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">03</div>
+      <div class="manifesto-title">Învățare Personală, Nu Globală</div>
+      <div class="manifesto-text">
+        ChatGPT, Gemini, Claude — toți învață din date globale. Lea învață din TINE. 
+        Local pe device-ul tău. Fără să trimită datele nicăieri. După 6 luni, Lea TA e unică în lume. 
+        Nimeni altcineva nu o are exact așa.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">04</div>
+      <div class="manifesto-title">Limitările = Oportunități</div>
+      <div class="manifesto-text">
+        4GB RAM? Nu e o problemă — e un avantaj. Mă forțează să fiu creativ. 
+        Rafturi + tipare + vectori = sistem care devine MAI RAPID cu timpul, nu mai lent. 
+        După 1000 conversații, 95% răspunsuri sunt instant (0.001s vs 30s AI generation).
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">05</div>
+      <div class="manifesto-title">Business Model Sustenabil</div>
+      <div class="manifesto-text">
+        Nu "fake it till you make it". Nu burn rate nebun. Revenue streams multiple: 
+        LEA HOME (gratuit - acquisition), LEA PRO (€8/lună - recurring), BUSINESS PACKAGES (€79-199 one-time), 
+        LEA CREATORS (€299/an). Target anul 3: €22M revenue, €8.8M profit. Realist. Atins prin execuție, nu prin hype.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">06</div>
+      <div class="manifesto-title">Protecție Împotriva Giganților</div>
+      <div class="manifesto-text">
+        Google poate copia features. NU poate copia povestea: "Un om de 26 ani din Slobozia, pe un Toshiba de 11 ani, zero finanțare." 
+        NU poate copia rețeaua de Insideri VV (ani de community building). NU poate copia filozofia hibridă (ei sunt 100% digital). 
+        David CAN beat Goliath — dacă David e mai rapid, mai agil, și luptă pe terenul lui.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">07</div>
+      <div class="manifesto-title">Transparență & Privacy by Design</div>
+      <div class="manifesto-text">
+        User-ul știe EXACT ce face Lea cu datele lui. Camera? Consent explicit fiecare dată. Procesare 100% locală. 
+        Poza ștearsă imediat. Zero facial recognition. Zero imagini cu minori. GDPR compliant by default, nu ca patch ulterior.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">08</div>
+      <div class="manifesto-title">Inspirație din Filme, Execuție în Realitate</div>
+      <div class="manifesto-text">
+        Her (Samantha) — relație reală cu AI. Blade Runner — oraș stratificat, informație din toate nivelurile simultan. 
+        Interstellar (TARS) — personalitate setată de user. Wall-E — onorarea urmelor umane. 
+        VV le combină pe TOATE și adaugă ce niciun film nu a îndrăznit: validare fizică din teren.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">09</div>
+      <div class="manifesto-title">Comunitate > Shareholders</div>
+      <div class="manifesto-text">
+        Insiderii VV nu sunt "useri" sau "utilizatori" — sunt FAMILIA. Ei validează pe stradă. 
+        Ei construiesc VV Bridge. Ei fac ecosistemul rezistent. La VV, efortul fizic = putere digitală. 
+        Nu contează cât plătești — contează cât mergi în oraș.
+      </div>
+    </div>
+    
+    <div class="manifesto-item">
+      <div class="manifesto-num">10</div>
+      <div class="manifesto-title">Obsesia pentru Execuție</div>
+      <div class="manifesto-text">
+        Deadline: 27 Mai 2026 (pilot functional). Nu "când e gata" — când promit. 
+        Filosofia Jobs: nu adaugi features până devine bloat. Elimini până rămâne un singur gest perfect. 
+        Lea observă. Tu trăiești. Ea înțelege. Fără formulare. Fără setări complexe. JUST WORKS.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIZIUNEA -->
+<div class="sec">
+  <div class="s-eye">Viziunea</div>
+  <h2 class="s-title">Ce construiesc.<br><em>Concret.</em></h2>
+  
+  <div class="grid3">
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <div class="card-title">LEA - Asistentul Personal</div>
+      <div class="card-desc">
+        AI care te cunoaște PERSONAL. Rulează local (TinyLlama 637MB). Învață din comportamentul tău. 
+        Voce caldă (Her-style). Prezență vizuală (orb luminos pulsând). Camera pentru validare vizuală (chitară, fitness, mecanică).
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">⬡</div>
+      <div class="card-title">VV PULSE - Validare Urbană</div>
+      <div class="card-desc">
+        Rețea de Insideri care validează fizic locații. "E deschis?" → Insider merge, verifică, confirmă. 
+        Anti-fraud prin camera (hash locație). Gamification (VV Points, badges, leaderboard).
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">VV AER - Sincronizare Magică</div>
+      <div class="card-desc">
+        Laptop = inimă (procesare grea). Telefon = mâini (experiență mobilă). Sync automat prin Firebase. 
+        Înveți chitară pe laptop cu camera → lecția merge pe telefon → practică mentală în autobuz.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-title">RAFTURI + TIPARE</div>
+      <div class="card-desc">
+        Revoluția eficienței. Răspunsuri pre-salvate în JSON. Prima dată = generare (30s). A doua oară = citire din raft (0.001s!). 
+        După 1000 conversații, 95% instant, 0 tokeni AI folosiți.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">🎤</div>
+      <div class="card-title">VOCE HIBRIDĂ</div>
+      <div class="card-desc">
+        95% răspunsuri frecvente = Piper TTS local (gratis, 2s). 5% răspunsuri noi = ElevenLabs API (cald, empatic). 
+        După 6 luni, 95% în cache → posibil anulare ElevenLabs = economie €132/an!
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <div class="card-title">BUSINESS PACKAGES</div>
+      <div class="card-desc">
+        Music Mastery (€99), Weekend Mechanic (€149), Fitness Architect (€79). 
+        One-time payment, acces pe viață. Cursuri complete cu tracking progres, camera guidance, community forum.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="sec">
+  <div class="s-eye">Roadmap</div>
+  <h2 class="s-title">De la 0<br><em>la primul milion.</em></h2>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Mai 2026</div>
+      <div class="timeline-title">Q2 · Pilot Launch (Deadline 27 Mai)</div>
+      <div class="timeline-desc">
+        LEA HOME stabilizată. Design final (sticlă, orb, voce). 10-20 beta testeri (prieteni, familie). 
+        Proof of concept functional. Media push local (antreprenor Slobozia story).
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Iunie-August 2026</div>
+      <div class="timeline-title">Q3 · Public Launch</div>
+      <div class="timeline-desc">
+        LEA HOME public (gratuit). VV Pulse beta (Insideri București + Slobozia). Target: 1000 useri activi. 
+        Media coverage național. Building in public (GitHub, blog, YouTube).
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Septembrie-Decembrie 2026</div>
+      <div class="timeline-title">Q4 · Monetization Start</div>
+      <div class="timeline-desc">
+        Launch LEA HOME PRO (€8/lună). Primele 3 Business Packages (Music, Fitness, Learning). 
+        Target: 5000 useri, 500 PRO subscribers. First revenue: ~€4k/lună.
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2027</div>
+      <div class="timeline-title">Anul Consolidării</div>
+      <div class="timeline-desc">
+        VV Pulse expansiune (5 orașe mari). LEA PRO launch (creators, influencers). 10 Business Packages noi. 
+        Target: 50k useri, 5k PRO (€480k/an). Break-even atins. Raise seed funding €1-2M pentru accelerare.
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2028</div>
+      <div class="timeline-title">Primul Milion (Profit Net)</div>
+      <div class="timeline-desc">
+        100k+ useri România. 10k PRO subscribers. 50+ Business Packages. Enterprise API (B2B). 
+        Revenue: €10M+/an. Profit net: €1M+ (first million achieved!). Valuare: €50M+. 
+        Expansiune Europa de Est (Polonia, Ungaria, Cehia).
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2029+</div>
+      <div class="timeline-title">Dominație & Expansiune</div>
+      <div class="timeline-desc">
+        Europa de Vest + US. Multi-city intelligence (București Lea ≠ Cluj Lea). VV Bridge operational (mesh network + satelit). 
+        Revenue: €22M+/an. Profit: €8M+/an. Valuare: €100M+. Success story românesc global.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="sec">
+  <div class="s-eye">Proiecții</div>
+  <h2 class="s-title">Numerele<br><em>care contează.</em></h2>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">€22M</div>
+      <div class="stat-label">Revenue Anul 3</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">€8.8M</div>
+      <div class="stat-label">Profit Net Anul 3</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100k+</div>
+      <div class="stat-label">Useri Activi Anul 3</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">€100M</div>
+      <div class="stat-label">Valuare Target 2029</div>
+    </div>
+  </div>
+  
+  <p class="s-sub" style="text-align:center;margin:0 auto;">
+    Nu sunt vise. Sunt proiecții realiste bazate pe execuție solidă, business model diversificat, și protecție strategică împotriva competiției.
+  </p>
+</div>
+
+<!-- QUOTES -->
+<div class="quote-big">
+  <div class="quote-big-text">
+    "Banii vin dacă <em>rezolvi probleme reale</em> pentru oameni reali. Nu din hype. Nu din promisiuni. Din <em>execuție.</em>"
+  </div>
+  <div class="quote-big-author">Cosmin Toma · Fondator VV</div>
+</div>
+
+<div class="quote-big">
+  <div class="quote-big-text">
+    "Stay hungry, stay foolish.<br>Rămâi flămând. <em>Rămâi nebun.</em>"
+  </div>
+  <div class="quote-big-author">Steve Jobs · Stanford 2005</div>
+</div>
+
+<div class="quote-big">
+  <div class="quote-big-text">
+    "Orice om suficient de inteligent<br>ca să construiască viitorul<br>e considerat nebun <em>până când<br>viitorul devine prezent.</em>"
+  </div>
+  <div class="quote-big-author">VV · Slobozia · 2026</div>
+</div>
+
+<!-- DE CE O SA REUSESC -->
+<div class="sec">
+  <div class="s-eye">De Ce O Să Reușesc</div>
+  <h2 class="s-title">Nu e speranță.<br><em>E certitudine.</em></h2>
+  
+  <div class="grid2">
+    <div class="card">
+      <div class="card-icon">🔥</div>
+      <div class="card-title">Obsesia pentru Execuție</div>
+      <div class="card-desc">
+        Nu vorbesc despre ce o să fac. FAC și apoi vorbesc. Deadline 27 Mai? O să fie gata. 
+        Nu "când e gata" — când promit. Obsesia asta m-a adus de la 0 cunoștințe în cod până aici.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">💡</div>
+      <div class="card-title">Creativitate din Limitări</div>
+      <div class="card-desc">
+        4GB RAM = nu e problemă, e oportunitate. Mă forțează să fiu mai deștept. Rafturi + vectori + tipare = 
+        sistem care devine MAI RAPID cu timpul. Google are infinite resources dar eu am CREATIVITATE.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <div class="card-title">Protecție Strategică</div>
+      <div class="card-desc">
+        David vs Goliath narrative. Open-source strategic. Ecosistem lock-in (valoros, nu toxic). 
+        VV Pulse = moat inimitabil. Diversificare geografică. Nu mă trezesc într-o zi cu Google care m-a închis.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <div class="card-title">Comunitate Reală</div>
+      <div class="card-desc">
+        Insiderii VV nu sunt "useri" — sunt familia. Ei construiesc împreună cu mine. 
+        Ei validează pe stradă. Ei fac VV rezistent. Community > shareholders. Mereu.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <div class="card-title">Business Model Sustenabil</div>
+      <div class="card-desc">
+        Nu burn rate nebun. Revenue streams multiple (recurring + one-time + B2B). 
+        Proiecții realiste. Break-even anul 2. Profit anul 3. Scaling fără să mor financiar pe drum.
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">Viziune Clară</div>
+      <div class="card-desc">
+        Știu EXACT unde merg. Nu "hai să vedem ce iese". LEA HOME → PRO → BUSINESS → CREATORS. 
+        România → Europa Est → Vest. Fiecare pas calculat. Fiecare milestone clar. Zero ambiguitate.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALL TO ACTION FINAL -->
+<div class="sec" style="text-align:center;">
+  <h2 class="s-title">Asta e doar<br><em>începutul.</em></h2>
+  <p class="s-sub" style="margin:0 auto 48px;">
+    Dacă citești asta și rezonezi cu viziunea — ești binevenit în ecosistemul VV. 
+    Building in public. Zero bullshit. Doar muncă, transparență, și execuție.
+  </p>
+  <a href="https://github.com/vv-technologies" class="cta">URMĂREȘTE PE GITHUB</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">VV</div>
+  <div class="footer-tagline">Road to First Million · Building in Public</div>
+  <div class="footer-links">
+    <a href="https://vv-technologies.github.io/vv-nexus/" class="footer-link">VV Nexus</a>
+    <a href="https://vv-technologies.github.io/vv-nexus/vv-now.html" class="footer-link">VV NOW</a>
+    <a href="https://vv-technologies.github.io/vv-nexus/vv-architecture.html" class="footer-link">Arhitectură</a>
+    <a href="https://github.com/vv-technologies" class="footer-link">GitHub</a>
+  </div>
+  <div class="footer-copy">
+    VV Hybrid Univers · Construit de Cosmin Toma, 26 ani, Slobozia, România<br>
+    Pe un iPhone X și un Toshiba de 11 ani · Zero finanțare externă · 100% suveranitate<br><br>
+    <strong style="color:var(--gold)">Stay hungry, stay foolish.</strong><br>
+    Rămâi flămând. Rămâi nebun.<br><br>
+    © 2026 VV Hybrid Univers · Toate drepturile rezervate
+  </div>
+</footer>
+
+</body>
+</html>
